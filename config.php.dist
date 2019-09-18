@@ -1,0 +1,11 @@
+<?php
+
+$config = [
+    'facebook' => [
+        'token' => '',
+        'app_secret' => '',
+        'verification'=>'',
+    ]
+
+];
+
