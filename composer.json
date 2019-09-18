@@ -1,5 +1,9 @@
 {
+    "autoload": {
+        "psr-4": {"App\\": "src/"}
+    },
     "require": {
-        "botman/driver-facebook": "^1.10"
+        "botman/driver-facebook": "^1.10",
+        "symfony/cache": "^4.3"
     }
 }
