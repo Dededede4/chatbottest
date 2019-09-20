@@ -4,6 +4,7 @@
     },
     "require": {
         "botman/driver-facebook": "^1.10",
-        "symfony/cache": "^4.3"
+        "symfony/cache": "^4.3",
+        "symfony/http-client": "^4.3"
     }
 }
