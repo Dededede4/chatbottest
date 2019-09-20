@@ -5,11 +5,20 @@ namespace App\Conversations;
 use BotMan\BotMan\Messages\Conversations\Conversation;
 use BotMan\BotMan\Messages\Incoming\Answer;
 
+use App\Providers\ProviderInterface;
+
 class OnboardingConversation extends Conversation
 {
     protected $firstname;
 
     protected $email;
+
+    protected $provider;
+
+    public function __construct(ProviderInterface $provider)
+    {
+        $this->provider = $provider;
+    }
 
     public function askFirstname()
     {
@@ -34,8 +43,12 @@ class OnboardingConversation extends Conversation
 
     public function run()
     {
-        // This will be called immediately
-        $this->askFirstname();
+        $sentences = $this->provider->getSentences();
+        foreach ($sentences as $sentence)
+        {
+            $this->say($sentence);
+        }
+        //$this->askFirstname();
     }
 }
 

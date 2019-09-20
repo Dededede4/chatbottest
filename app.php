@@ -12,6 +12,7 @@ use BotMan\BotMan\Cache\SymfonyCache;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
 use App\Conversations\OnboardingConversation;
+use App\Providers\Apifootball;
 
 // Load the driver(s) you want to use
 DriverManager::loadDriver(\BotMan\Drivers\Facebook\FacebookDriver::class);
@@ -20,9 +21,11 @@ DriverManager::loadDriver(\BotMan\Drivers\Facebook\FacebookDriver::class);
 $adapter = new FilesystemAdapter();
 $botman = BotManFactory::create($config, new SymfonyCache($adapter));
 
+$provider = new Apifootball($config['app']['apifootball_token']);
+
 // Give the bot something to listen for.
-$botman->hears('Hello', function($bot) {
-    $bot->startConversation(new OnboardingConversation);
+$botman->hears('Hello', function($bot) use($provider) {
+    $bot->startConversation(new OnboardingConversation($provider));
 });
 
 $botman->fallback(function($bot) {

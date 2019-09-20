@@ -1,11 +1,12 @@
 <?php
 
 $config = [
+    'app' => [
+        'apifootball_token' => '',
+    ],
     'facebook' => [
         'token' => '',
         'app_secret' => '',
-        'verification'=>'',
+        'verification' => '',
     ]
-
 ];
-
