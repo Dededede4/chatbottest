@@ -15,7 +15,10 @@ class Apifootball implements ProviderInterface
 
     protected function getCompleteUrl() : string
     {
-        return 'https://apiv2.apifootball.com/?action=get_events&from=2019-09-10&to=2019-09-19&league_id=176&APIkey='.$this->token;
+        $from = new \DateTime('1 week ago');
+        $to = new \DateTime();
+        $leagueId = '176'; // Ligue 1
+        return 'https://apiv2.apifootball.com/?action=get_events&from='.$from->format('Y-m-d').'0&to='.$to->format('Y-m-d').'&league_id='.$leagueId.'&APIkey='.$this->token;
     }
 
     public function getSentences() : array
