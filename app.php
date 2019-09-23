@@ -24,12 +24,13 @@ $botman = BotManFactory::create($config, new SymfonyCache($adapter));
 $provider = new Apifootball($config['app']['apifootball_token']);
 
 // Give the bot something to listen for.
+
 $botman->hears('Hello', function($bot) use($provider) {
     $bot->startConversation(new OnboardingConversation($provider));
 });
 
 $botman->fallback(function($bot) {
-    $bot->reply('Sorry, I did not understand these commands. Here is a list of commands I understand: ...');
+    $bot->reply('Je ne comprends pas.');
 });
 
 // Start listening
