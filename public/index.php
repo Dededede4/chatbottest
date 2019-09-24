@@ -1,8 +1,8 @@
 <?php
 
-require_once 'vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
-include('config.php');
+include('../config/config.php');
 
 use BotMan\BotMan\BotMan;
 use BotMan\BotMan\BotManFactory;

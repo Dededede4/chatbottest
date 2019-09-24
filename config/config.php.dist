@@ -8,5 +8,6 @@ $config = [
         'token' => '',
         'app_secret' => '',
         'verification' => '',
+        'start_button_payload' => 'Hello',
     ]
 ];
